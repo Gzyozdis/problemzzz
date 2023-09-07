@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int size = 0;
+    cout << "Введите размер массива:\n>> ";
+    cin >> size;
+
+    //ввод массива
+    int mas[size];
+    int n;
+    cout << "\nВведите числа:\n>> ";
+    for (int i = 0; i < size; i++)
+    {
+        cin >> n;
+        mas[i] = n;
+    }
+    
+    //сортировка по возрастанию
+    int sort = INT_MAX, minInd, start = 0;
+    while (start < size)
+    {
+    for (int i = start; i < size; i++)
+     if (mas[i] < sort)
+        {
+         sort = mas[i];
+            minInd = i;
+        }    
+    mas[minInd] = mas[start];        
+    mas[start] = sort;
+    sort = INT_MAX;
+    start++;
+    }
+    
+    //вывод массива
+    for (int i = 0; i < size; i++)
+        cout << mas[i] << ' ';
+    return 0;
+}
